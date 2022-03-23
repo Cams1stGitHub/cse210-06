@@ -31,14 +31,10 @@ class DrawActorsAction(Action):
         """
         score = cast.get_first_actor("score")
         ship = cast.get_first_actor("ship")
-        front_of_ship = cast.get_first_actor("front_of_ship")
-        segments_one = ship.get_segments()
-        segments_two = front_of_ship.get_segments()
         messages = cast.get_actors("messages")
 
         self._video_service.clear_buffer()
-        self._video_service.draw_actors(segments_one)
-        self._video_service.draw_actors(segments_two)
         self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
+        self._video_service.draw_actor(ship)
         self._video_service.flush_buffer()

@@ -1,5 +1,7 @@
 import pyray
 
+from game.shared.point import Point
+
 
 class KeyboardService:
     """Detects player input.
@@ -39,3 +41,18 @@ class KeyboardService:
         """
         pyray_key = self._keys[key.lower()]
         return pyray.is_key_down(pyray_key)
+
+    def get_direction(self):
+        dx = 0
+        dy = 0
+
+        if pyray.is_key_down(pyray.KEY_LEFT):
+            dx = -1
+
+        if pyray.is_key_down(pyray.KEY_RIGHT):
+            dx = 1
+
+        direction = Point(dx, dy)
+        direction = direction.scale(15)
+
+        return direction

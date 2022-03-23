@@ -20,6 +20,7 @@ class Score(Actor):
         set_position (method): A method that sets the scores position on the screen.
         set_text (method): A method that displays each players name.
     """
+
     def __init__(self):
         """Sets starting points and position of points display
 
@@ -30,7 +31,6 @@ class Score(Actor):
         self._player_name = ""
         self.set_text(f"{self._player_name}: {self._points}")
         self.set_position(position)
-
 
     def add_points(self, points):
         """Adds the given points to the running total and updates the text.
@@ -57,7 +57,7 @@ class Score(Actor):
         self._points -= 1
         self.set_text(f"{self._player_name}: {self._points}")
 
-    def set_player_name(self,name):
+    def set_player_name(self, name):
         """Sets the player's name
 
         Args:

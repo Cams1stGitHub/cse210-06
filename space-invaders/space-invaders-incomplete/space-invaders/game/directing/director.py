@@ -1,6 +1,8 @@
 import random
+from constants import *
 
 from game.shared.point import Point
+
 
 class Director:
     """A person who directs the game.
@@ -10,6 +12,7 @@ class Director:
         _video_service (VideoService): For providing video output.
         _score (int): A default score set to an integer of 100.
     """
+
     def __init__(self, keyboard_service, video_service):
         """Constructs a new Director using the specified keyboard and video services.
         Args:
@@ -19,7 +22,6 @@ class Director:
         self._keyboard_service = keyboard_service
         self._video_service = video_service
         self._score = 100
-
 
     def start_game(self, cast, script):
         """Starts the game using the given cast. Runs the main game loop.
@@ -39,67 +41,6 @@ class Director:
             self._execute_actions("update", cast, script)
             self._execute_actions("output", cast, script)
         self._video_service.close_window()
-
-    def _get_inputs(self, cast):
-        """Gets directional input from the keyboard and applies it to the robot.
-        Args:
-            cast (Cast): The cast of actors.
-        """
-        ship = cast.get_first_actor("ship")
-        front_of_ship = cast.get_first_actor("front_of_ship")
-        velocity = self._keyboard_service.get_direction()
-
-        # Restrict movement above the 450 line
-        if velocity.get_y() < 0:
-            if ship.get_position().get_y() <= 450:
-                velocity = Point(velocity.get_x(), 0)
-        # Restrict movement below bottom
-        if velocity.get_y() > 0:
-            if ship.get_position().get_y() > 579:
-                velocity = Point(velocity.get_x(), 0)
-
-        ship.set_velocity(velocity)
-        actors = cast.get_all_actors()
-        for actor in actors:
-            if actor.get_group() == "gems" or actor.get_group() == "rocks":
-                actors_velocity = Point(0, random.randint(1, 10))
-                actor.set_velocity(actors_velocity)
-
-
-    def _do_updates(self, cast):
-        """Updates the robot's position and resolves any collisions with artifacts.
-        Args:
-            cast (Cast): The cast of actors.
-        """
-        banner = cast.get_first_actor("banners")
-        ship = cast.get_first_actor("ship")
-        all_actors = cast.get_all_actors()
-
-        banner.set_text(f"Score: {self._score}")
-        max_x = self._video_service.get_width()
-        max_y = self._video_service.get_height()
-        pos = Point(max_x, max_y)
-        ship.move_next(max_x, max_y)
-        for actor in all_actors:
-            x = random.randint(1, 60)
-            y = random.randint(1, 15)
-            position = Point(x, y)
-            position = position.scale(15)
-            if actor.get_group() == "gems" or actor.get_group() == "rocks":
-                actor.move_next(max_x, max_y)
-                self._update_positions(ship, actor, position)
-
-    def _update_positions(self, ship, actor, position):
-        """Draws the actors on the screen.
-        Args:
-            self (Cast): Instance of Cast.
-            robot (Robot): the player robot
-            actor (Actor): Instance of actor
-            position (Point): Instance of point
-        """
-        if ship.get_position().bounding_equals(actor.get_position()):
-            actor.set_position(position)
-            self._score += actor.get_value()
 
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

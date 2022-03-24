@@ -20,6 +20,8 @@ from game.services.video_service import VideoService
 from game.shared.point import Point
 
 from game.casting.ship import Ship
+from game.casting.alien import Alien
+
 from game.casting.gem import Gem
 from game.casting.rock import Rock
 
@@ -45,6 +47,10 @@ def main():
     ship.set_font_size(FONT_SIZE)
     ship.set_color(WHITE)
     cast.add_actor("ship", ship)
+
+    aliens = Alien()
+    
+    cast.add_actor("aliens", aliens)
 
     score = Score()
     score.set_position(Point(MAX_X, 0))

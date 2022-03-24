@@ -10,6 +10,7 @@ class GameOver(Actor):
     ---
         _color (constant): The color value the game over message is displayed in.
     """
+
     def __init__(self):
         "Constructs a game over message."
         super().__init__()

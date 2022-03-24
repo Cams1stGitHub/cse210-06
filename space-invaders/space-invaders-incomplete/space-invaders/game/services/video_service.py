@@ -7,7 +7,7 @@ class VideoService:
     on the screen.
     """
 
-    def __init__(self, debug = False):
+    def __init__(self, debug=False):
         """Constructs a new VideoService using the specified debug mode.
 
         Args:
@@ -94,7 +94,7 @@ class VideoService:
 
     def _get_x_offset(self, text, font_size):
         """Gets the offset measurement for the text.
-        
+
         Args:
         ---
             text (string): The actor's textual representation.

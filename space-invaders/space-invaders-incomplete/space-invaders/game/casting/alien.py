@@ -5,7 +5,7 @@ from game.shared.color import Color
 from game.casting.cast import Cast
 
 
-class Ship(Actor):
+class Alien(Actor):
     """An elite fighter space ship that is part of The Interstellar Armed Forces.
 
     The responsibility of Ship is to move itself.

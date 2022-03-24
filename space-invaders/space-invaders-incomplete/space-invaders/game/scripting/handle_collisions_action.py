@@ -1,5 +1,4 @@
 from constants import *
-
 from game.scripting.action import Action
 from game.shared.point import Point
 from game.casting.game_over_message import GameOver
@@ -47,7 +46,6 @@ class HandleCollisionsAction(Action):
         """
         pass
 
-
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns both cycles white if the game is over.
 
@@ -64,11 +62,11 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             cycle_one = cast.get_first_actor("cycle_one")
             cycle_two = cast.get_first_actor("cycle_two")
-            
+
             # Gets segments for cycle one and two
             segments_one = cycle_one.get_segments()
             segments_two = cycle_two.get_segments()
-            
+
             # Creates gameover message
             game_over = GameOver()
             game_over.set_position(position)

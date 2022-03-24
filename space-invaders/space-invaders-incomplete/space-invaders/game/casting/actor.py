@@ -23,7 +23,7 @@ class Actor:
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
-        self.group = ""
+        self._group = ""
 
     def get_color(self):
         """Gets the actor's color as a tuple of three ints (r, g, b).
@@ -72,7 +72,7 @@ class Actor:
 
     def get_group(self):
         """Gets the actor's group as a string
-        
+
         Returns:
             String: The actor's group name.
         """
@@ -138,7 +138,7 @@ class Actor:
 
     def set_group(self, group):
         """Updates the group to the given one.
-        
+
         Args:
             group (string): The given name.
         """

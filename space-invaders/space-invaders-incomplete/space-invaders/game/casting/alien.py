@@ -25,6 +25,8 @@ class Alien(Actor):
         super().__init__()
         self._segments = []
         self._prepare_ship(Point(100, 100))
+        self.velocityX = 0
+        self.velocityY = 0
 
     def get_segments(self):
         """Gets the segments for each cycle.
@@ -54,7 +56,7 @@ class Alien(Actor):
         # self._position = Point(x, y)
         for segment in self._segments:
             segment.move_next()
-
+    
     def set_ship_color(self, color):
         """Sets the color for each segment of a cycle.
 

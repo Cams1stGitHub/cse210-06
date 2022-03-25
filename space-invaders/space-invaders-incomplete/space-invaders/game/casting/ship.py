@@ -15,7 +15,7 @@ class Ship(Actor):
     """
 
 
-    def __init__(self, position):
+    def __init__(self):
         """Constructs a new Ship.
 
             Args:
@@ -23,17 +23,17 @@ class Ship(Actor):
                 position (Point): The position and direction that each cycle will travel in at game start.
             """
         super().__init__()
-        self._segments = []
-        self._prepare_ship(Point(450, int(MAX_Y - CELL_SIZE)))
-        self._position = position
+    #     self._segments = []
+    #     self._prepare_ship(Point(450, int(MAX_Y - CELL_SIZE)))
+    #     # self._position = position
 
-    def get_segments(self):
-        """Gets the segments for each cycle.
+    # def get_segments(self):
+    #     """Gets the segments for each cycle.
 
-        Returns:
-        ---
-            List: The list of actors for each cycle"""
-        return self._segments
+    #     Returns:
+    #     ---
+    #         List: The list of actors for each cycle"""
+    #     return self._segments
 
     def move_next(self):
         """Moves the actor to its next position according to its velocity. Will wrap the position
@@ -45,16 +45,16 @@ class Ship(Actor):
                 max_y (int): The maximum y value.
             """
         print(f"velocity: {self.get_velocity().get_x()}")
-        if self._position.get_x() >= 0 and self._position.get_x() <= 885:
+        if self._position.get_x() >= 0 and self._position.get_x() <= 900:
             x = (self._position.get_x() + self._velocity.get_x())
             y = (self._position.get_y() + self._velocity.get_y())
             if x < 0:
                     x = 0
-            if x > 885:
-                x = 885
+            if x > 900:
+                x = 900
             self._position = Point(x, y)
-        for segment in self._segments:
-            segment.move_next()
+        # for segment in self._segments:
+        #     segment.move_next()
 
 
     def set_ship_color(self, color):
@@ -68,20 +68,20 @@ class Ship(Actor):
         self._color = color
         self._segments[0].set_color(self._color)
 
-    def _prepare_ship(self, position):
-        x = position.get_x()
-        y = position.get_y()
+    # def _prepare_ship(self, position):
+    #     x = position.get_x()
+    #     y = position.get_y()
 
-        # position = Point(x + 0 * CELL_SIZE, y)
-        position = Point(x + 0 * CELL_SIZE, y)
+    #     # position = Point(x + 0 * CELL_SIZE, y)
+    #     position = Point(x + 0 * CELL_SIZE, y)
 
-        segment = Actor()
-        segment.set_text("#")
-        segment.set_position(position)
-        # segment.set_velocity(velocity)
-        segment.set_font_size(FONT_SIZE)
-        segment.set_color(WHITE)
-        self._segments.append(segment)
+    #     segment = Actor()
+    #     segment.set_text("#")
+    #     segment.set_position(position)
+    #     # segment.set_velocity(velocity)
+    #     segment.set_font_size(FONT_SIZE)
+    #     segment.set_color(WHITE)
+        # self._segments.append(segment)
 
     def set_name(self, name):
         """Sets the name for each player.

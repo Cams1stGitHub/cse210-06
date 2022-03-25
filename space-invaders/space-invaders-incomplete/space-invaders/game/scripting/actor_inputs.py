@@ -21,5 +21,5 @@ class ActorInputs(Action):
         ship = cast.get_first_actor("ship")
         velocity = self._keyboard_service.get_direction()
         print(f"psoition: {ship.get_position().get_x()}")
-        ship._segments[0].set_velocity(velocity)
+        ship.set_velocity(velocity)
         # ship.move_next()

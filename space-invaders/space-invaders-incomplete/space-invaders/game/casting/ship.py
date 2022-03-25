@@ -3,7 +3,7 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 from game.shared.color import Color
 from game.casting.cast import Cast
-
+from game.services.keyboard_service import KeyboardService
 
 class Ship(Actor):
     """An elite fighter space ship that is part of The Interstellar Armed Forces.
@@ -15,7 +15,7 @@ class Ship(Actor):
     """
 
 
-    def __init__(self):
+    def __init__(self, position):
         """Constructs a new Ship.
 
             Args:
@@ -24,7 +24,8 @@ class Ship(Actor):
             """
         super().__init__()
         self._segments = []
-        self._prepare_ship(Point(100, 100))
+        self._prepare_ship(Point(450, int(MAX_Y - CELL_SIZE)))
+        self._position = position
 
     def get_segments(self):
         """Gets the segments for each cycle.
@@ -43,7 +44,7 @@ class Ship(Actor):
                 max_x (int): The maximum x value.
                 max_y (int): The maximum y value.
             """
-        print(self.get_velocity().get_x())
+        print(f"velocity: {self.get_velocity().get_x()}")
         if self._position.get_x() >= 0 and self._position.get_x() <= 885:
             x = (self._position.get_x() + self._velocity.get_x())
             y = (self._position.get_y() + self._velocity.get_y())
@@ -52,6 +53,8 @@ class Ship(Actor):
             if x > 885:
                 x = 885
             self._position = Point(x, y)
+        for segment in self._segments:
+            segment.move_next()
 
 
     def set_ship_color(self, color):
@@ -69,38 +72,15 @@ class Ship(Actor):
         x = position.get_x()
         y = position.get_y()
 
-        # for i in range(CYCLE_LENGTH):
+        # position = Point(x + 0 * CELL_SIZE, y)
         position = Point(x + 0 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = "<"
 
         segment = Actor()
+        segment.set_text("#")
         segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
-        self._segments.append(segment)
-
-        position = Point(x + 1 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = "="
-
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
-        self._segments.append(segment)
-
-        position = Point(x + 2 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = ">"
-
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
+        # segment.set_velocity(velocity)
+        segment.set_font_size(FONT_SIZE)
+        segment.set_color(WHITE)
         self._segments.append(segment)
 
     def set_name(self, name):

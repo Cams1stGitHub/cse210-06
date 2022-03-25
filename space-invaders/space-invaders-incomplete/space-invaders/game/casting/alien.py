@@ -44,15 +44,16 @@ class Alien(Actor):
                 max_y (int): The maximum y value.
             """
         print(self.get_velocity().get_x())
-        if self._position.get_x() >= 0 and self._position.get_x() <= 885:
-            x = (self._position.get_x() + self._velocity.get_x())
-            y = (self._position.get_y() + self._velocity.get_y())
-            if x < 0:
-                    x = 0
-            if x > 885:
-                x = 885
-            self._position = Point(x, y)
-
+        # if self._position.get_x() >= 0 and self._position.get_x() <= 885:
+        # x = (self._position.get_x() + self._velocity.get_x()) % MAX_X
+        # y = (self._position.get_y() + self._velocity.get_y()) % MAX_Y
+        #     # if x < 0:
+        #     #         x = 0
+        #     # if x > 885:
+        #     #     x = 885
+        # self._position = Point(x, y)
+        for segment in self._segments:
+            segment.move_next()
 
     def set_ship_color(self, color):
         """Sets the color for each segment of a cycle.
@@ -69,39 +70,40 @@ class Alien(Actor):
         x = position.get_x()
         y = position.get_y()
 
-        # for i in range(CYCLE_LENGTH):
-        position = Point(x + 0 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = "<"
+        for x in range(30, 885, 45):
+            for y in range(4):
+                position = Point(x + 0 * 15, y * 15)
+                velocity = Point(0, 1)
+                text = "<"
 
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
-        self._segments.append(segment)
+                segment = Actor()
+                segment.set_position(position)
+                segment.set_velocity(velocity)
+                segment.set_text(text)
+                segment.set_color(self._color)
+                self._segments.append(segment)
 
-        position = Point(x + 1 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = "="
+                position = Point(x + 1 * 15, y * 15)
+                velocity = Point(0, 1)
+                text = "="
 
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
-        self._segments.append(segment)
+                segment = Actor()
+                segment.set_position(position)
+                segment.set_velocity(velocity)
+                segment.set_text(text)
+                segment.set_color(self._color)
+                self._segments.append(segment)
 
-        position = Point(x + 2 * CELL_SIZE, y)
-        velocity = Point(0, 1 * -CELL_SIZE)
-        text = ">"
+                position = Point(x + 2 * 15, y * 15)
+                velocity = Point(0, 1)
+                text = ">"
 
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text(text)
-        segment.set_color(self._color)
-        self._segments.append(segment)
+                segment = Actor()
+                segment.set_position(position)
+                segment.set_velocity(velocity)
+                segment.set_text(text)
+                segment.set_color(self._color)
+                self._segments.append(segment)
 
     def set_name(self, name):
         """Sets the name for each player.

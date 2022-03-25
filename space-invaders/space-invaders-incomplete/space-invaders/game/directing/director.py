@@ -1,4 +1,5 @@
 import random
+import time
 from constants import *
 
 from game.shared.point import Point
@@ -40,6 +41,7 @@ class Director:
             self._execute_actions("input", cast, script)
             self._execute_actions("update", cast, script)
             self._execute_actions("output", cast, script)
+            # time.sleep(.5)
         self._video_service.close_window()
 
     def _do_outputs(self, cast):

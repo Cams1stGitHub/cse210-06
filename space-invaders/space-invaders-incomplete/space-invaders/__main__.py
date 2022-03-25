@@ -40,16 +40,16 @@ def main():
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
 
-    ship = Ship()
+    ship = Ship(Point(int(MAX_X / 2), int(MAX_Y - CELL_SIZE)))
 
-    ship.set_position(Point(int(MAX_X / 2), int(MAX_Y - CELL_SIZE)))
-    ship.set_text("#")
-    ship.set_font_size(FONT_SIZE)
-    ship.set_color(WHITE)
+    # ship.set_position(Point(int(MAX_X / 2), int(MAX_Y - CELL_SIZE)))
+    # ship.set_text("#")
+    # ship.set_font_size(FONT_SIZE)
+    # ship.set_color(WHITE)
     cast.add_actor("ship", ship)
 
     aliens = Alien()
-    
+
     cast.add_actor("aliens", aliens)
 
     score = Score()

@@ -3,6 +3,7 @@ from constants import *
 
 from game.shared.point import Point
 from game.scripting.action import Action
+from game.casting.ship import Ship
 
 
 class ActorUpdates(Action):
@@ -20,7 +21,7 @@ class ActorUpdates(Action):
         """
         banner = cast.get_first_actor("banners")
         ship = cast.get_first_actor("ship")
-        # ship.move_next()
+        # Ship().move_next()
 
     def _update_positions(self, ship, actor, position):
         """Draws the actors on the screen.

@@ -17,6 +17,7 @@ from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.services.keyboard_service import KeyboardService
+from game.services.sound_service import AudioService
 from game.services.video_service import VideoService
 from game.shared.point import Point
 
@@ -59,23 +60,23 @@ def main():
     score.set_position(Point(MAX_X, 0))
     score.add_points(0)
     score.set_player_name("score")
+    score.set_font_size(20)
 
     cast.add_actor("score", score)
 
     keyboard_service = KeyboardService()
     video_service = VideoService()
-
+    audio_service = AudioService()
 
     script = Script()
-    script.add_action("input", ActorInputs(keyboard_service))
+    script.add_action("input", ActorInputs(keyboard_service, audio_service))
     script.add_action("update", ActorUpdates())
-    script.add_action("update", HandleCollisionsAction())
+    script.add_action("update", HandleCollisionsAction(audio_service))
     script.add_action("update", MoveActorsAction())
     script.add_action("output", DrawActorsAction(video_service))
     script.add_action("output", ActorOutputs())
-    print(script._actions)
 
-    director = Director(keyboard_service, video_service)
+    director = Director(keyboard_service, video_service, audio_service)
     director.start_game(cast, script)
 
 

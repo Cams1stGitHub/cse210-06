@@ -44,7 +44,7 @@ class Ship(Actor):
                 max_x (int): The maximum x value.
                 max_y (int): The maximum y value.
             """
-        print(f"velocity: {self.get_velocity().get_x()}")
+
         if self._position.get_x() >= 0 and self._position.get_x() <= 870:
             x = (self._position.get_x() + self._velocity.get_x())
             y = (self._position.get_y() + self._velocity.get_y())

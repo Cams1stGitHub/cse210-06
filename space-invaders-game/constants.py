@@ -23,3 +23,10 @@ ALIEN_COLORS = [PURPLE, BLUE, TEAL, ORANGE]
 RED = Color(255, 0, 0)
 DEFAULT_ROCKS = 20
 DEFAULT_GEMS = 20
+
+#sounds
+EXPLOSION_SOUND = "game/assets/explosion.wav"
+SHOT_SOUND = "game/assets/shot.wav"
+LOOP_SOUND = "game/assets/loop.wav"
+GAME_OVER = "game/assets/gameover.wav"
+STAGE_CLEAR = "game/assets/win.wav"

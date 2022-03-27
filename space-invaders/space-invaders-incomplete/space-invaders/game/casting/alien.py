@@ -64,7 +64,7 @@ class Alien(Actor):
         y = position.get_y()
         points = [15,10,5,20]
         for x in range(30, 870, 30):
-            for y in range(2):
+            for y in range(4):
                 position = Point(x + 0 * 15, 30 + y * 15)
                 velocity = Point(0, 1)
                 text = "<x>"

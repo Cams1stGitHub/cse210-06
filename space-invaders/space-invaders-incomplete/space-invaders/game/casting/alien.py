@@ -45,15 +45,6 @@ class Alien(Actor):
                 max_x (int): The maximum x value.
                 max_y (int): The maximum y value.
             """
-        print(self.get_velocity().get_x())
-        # if self._position.get_x() >= 0 and self._position.get_x() <= 885:
-        # x = (self._position.get_x() + self._velocity.get_x()) % MAX_X
-        # y = (self._position.get_y() + self._velocity.get_y()) % MAX_Y
-        #     # if x < 0:
-        #     #         x = 0
-        #     # if x > 885:
-        #     #     x = 885
-        # self._position = Point(x, y)
         for segment in self._segments:
             segment.move_next()
     
@@ -71,9 +62,9 @@ class Alien(Actor):
     def _prepare_ship(self, position):
         x = position.get_x()
         y = position.get_y()
-
+        points = [15,10,5,20]
         for x in range(30, 870, 30):
-            for y in range(4):
+            for y in range(2):
                 position = Point(x + 0 * 15, 30 + y * 15)
                 velocity = Point(0, 1)
                 text = "<x>"
@@ -82,36 +73,9 @@ class Alien(Actor):
                 segment.set_position(position)
                 segment.set_velocity(velocity)
                 segment.set_text(text)
-                segment.set_color(self._color)
+                segment.set_color(ALIEN_COLORS[y-1])
+                segment.set_points(points[y-1])
                 self._segments.append(segment)
 
-                # position = Point(x + 1 * 15, y * 15)
-                # velocity = Point(0, 1)
-                # text = "="
-
-                # segment = Actor()
-                # segment.set_position(position)
-                # segment.set_velocity(velocity)
-                # segment.set_text(text)
-                # segment.set_color(self._color)
-                # self._segments.append(segment)
-
-                # position = Point(x + 2 * 15, y * 15)
-                # velocity = Point(0, 1)
-                # text = ">"
-
-                # segment = Actor()
-                # segment.set_position(position)
-                # segment.set_velocity(velocity)
-                # segment.set_text(text)
-                # segment.set_color(self._color)
-                # self._segments.append(segment)
-
-    def set_name(self, name):
-        """Sets the name for each player.
-
-            Args:
-            ---
-                String: The players given name as text.
-            """
-        self._name = name
+    def _remove_alien(self, alien):
+        self._segments.remove(alien)

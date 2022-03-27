@@ -47,7 +47,7 @@ def main():
     ship.set_position(Point(450, int(MAX_Y - 15)))
     ship.set_text("<v>")
     ship.set_font_size(FONT_SIZE)
-    ship.set_color(RED)
+    ship.set_color(WHITE)
     cast.add_actor("ship", ship)
 
 

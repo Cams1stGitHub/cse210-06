@@ -29,13 +29,6 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-
-        # self._video_service.open_window()
-        # while self._video_service.is_window_open():
-        #     self._get_inputs(cast)
-        #     self._do_updates(cast)
-        #     self._do_outputs(cast)
-        # self._video_service.close_window()
         self._video_service.open_window()
         while self._video_service.is_window_open():
             self._execute_actions("input", cast, script)

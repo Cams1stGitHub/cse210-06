@@ -62,7 +62,7 @@ class KeyboardService:
 
     def fire_weapon(self):
 
-        if pyray.is_key_down(pyray.KEY_SPACE):
+        if pyray.is_key_pressed(pyray.KEY_SPACE):
 
             return True
         # direction = direction.scale(-15)

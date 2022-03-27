@@ -25,12 +25,12 @@ class ActorInputs(Action):
         print(f"psoition: {ship.get_position().get_x()}")
         ship.set_velocity(velocity)
         # ship.move_next()
-        ship_weapon = cast.get_first_actor("ship_weapon")
+
         if self._keyboard_service.fire_weapon():
             ship_weapon = Actor()
             ship_weapon.set_position(ship.get_position())
-            ship_weapon.set_velocity(Point(0, -15))
+            ship_weapon.set_velocity(Point(0, -7))
             ship_weapon.set_text("!")
             ship_weapon.set_font_size(FONT_SIZE)
-            ship_weapon.set_color(WHITE)
+            ship_weapon.set_color(YELLOW)
             cast.add_actor("ship_weapon", ship_weapon)

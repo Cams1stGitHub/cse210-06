@@ -52,7 +52,7 @@ class Point:
         Returns:
             boolean: True if other point is inside of the bounding box.
         """
-        bounding_x = other.get_x() >= self._x and other.get_x() <= self._x + 7
+        bounding_x = other.get_x() >= self._x and other.get_x() <= self._x + 15
         bounding_y = other.get_y() >= self._y and other.get_y() <= self._y + 15
         if bounding_x and bounding_y:
             return True

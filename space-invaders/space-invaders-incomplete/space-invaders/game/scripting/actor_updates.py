@@ -21,10 +21,12 @@ class ActorUpdates(Action):
         """
         banner = cast.get_first_actor("banners")
         ship = cast.get_first_actor("ship")
-        # ship.move_next()
+
         ship_weapon = cast.get_actors("ship_weapon")
         for bullet in ship_weapon:
             bullet.move_next()
+            if bullet.get_position().get_y() <= 7:
+                cast.remove_actor("ship_weapon", bullet)
 
     def _update_positions(self, ship, actor, position):
         """Draws the actors on the screen.

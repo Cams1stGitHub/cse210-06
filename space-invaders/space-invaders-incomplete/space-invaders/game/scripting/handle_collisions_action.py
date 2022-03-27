@@ -1,3 +1,5 @@
+from tkinter.messagebox import NO
+from wsgiref.util import shift_path_info
 from constants import *
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -33,10 +35,11 @@ class HandleCollisionsAction(Action):
             script (Script): The script of Actions in the game.
         """
         if not self._is_game_over:
-            self._handle_segment_collision(cast)
+            self._handle_collision(cast)
+        else:
             self._handle_game_over(cast)
 
-    def _handle_segment_collision(self, cast):
+    def _handle_collision(self, cast):
         """Sets the game over flag if a cycle collides with one of its segments or the other
         cycle.
 
@@ -44,7 +47,32 @@ class HandleCollisionsAction(Action):
         ---
             cast (Cast): The cast of Actors in the game.
         """
-        pass
+        bullets = cast.get_actors("ship_weapon")
+        score = cast.get_first_actor("score")
+        ship = cast.get_first_actor("ship")
+        alienslist = cast.get_first_actor("aliens")
+        
+        if len(alienslist.get_segments()) == 0:
+            self._is_game_over = True
+            self._game_over_message = "You win!"
+            ship.set_font_size(50)
+            ship.set_position(Point(int(MAX_X/2), int(MAX_Y/4)))
+        
+        for alien in alienslist.get_segments():
+            if alien.get_position().get_y() >= MAX_Y-7:
+                self._is_game_over = True
+
+            for bullet in bullets:
+                if alien.get_position().bounding_equals(bullet.get_position()):
+                    alienslist._remove_alien(alien)
+                    cast.remove_actor("ship_weapon", bullet)
+                    score.add_points(alien.get_points())
+                    
+        for alien in alienslist.get_segments():
+            if ship.get_position().bounding_equals(alien.get_position()):
+                self._is_game_over = True
+                self._game_over_message = "Game over!"
+                
 
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns both cycles white if the game is over.
@@ -60,12 +88,8 @@ class HandleCollisionsAction(Action):
         position = Point(x, y)
 
         if self._is_game_over:
-            cycle_one = cast.get_first_actor("cycle_one")
-            cycle_two = cast.get_first_actor("cycle_two")
 
             # Gets segments for cycle one and two
-            segments_one = cycle_one.get_segments()
-            segments_two = cycle_two.get_segments()
 
             # Creates gameover message
             game_over = GameOver()
@@ -73,10 +97,3 @@ class HandleCollisionsAction(Action):
             game_over.set_text(self._game_over_message)
             game_over.set_font_size(50)
             cast.add_actor("messages", game_over)
-
-            # Changes color of cycles to white after the game ends
-            for segment in segments_one:
-                segment.set_color(WHITE)
-
-            for segment in segments_two:
-                segment.set_color(WHITE)

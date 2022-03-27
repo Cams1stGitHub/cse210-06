@@ -29,9 +29,9 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+        ship_weapon = cast.get_actors("ship_weapon")
         score = cast.get_first_actor("score")
         ship = cast.get_first_actor("ship")
-        ship_weapon = cast.get_actors("ship_weapon")
         aliens = cast.get_first_actor("aliens")
         messages = cast.get_actors("messages")
         alien_segments = aliens.get_segments()

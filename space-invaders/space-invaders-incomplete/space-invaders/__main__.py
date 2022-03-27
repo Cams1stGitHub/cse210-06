@@ -50,13 +50,6 @@ def main():
     ship.set_color(RED)
     cast.add_actor("ship", ship)
 
-    ship_weapon = ShipWeapon(KeyboardService.ship_weapon_direction(pyray.KEY_SPACE), Ship().get_position())
-
-    # ship_weapon.set_text("!")
-    # ship_weapon.set_position(ship.get_position())
-    # ship_weapon.set_font_size(FONT_SIZE)
-    # ship_weapon.set_color(WHITE)
-    cast.add_actor("ship_weapon", ship_weapon)
 
     aliens = Alien()
     

@@ -3,6 +3,8 @@ from game.scripting.action import Action
 from game.shared.point import Point
 from constants import *
 from game.casting.ship import Ship
+from game.casting.actor import Actor
+
 
 class ActorInputs(Action):
     def __init__(self, keyboard_services):
@@ -24,5 +26,11 @@ class ActorInputs(Action):
         ship.set_velocity(velocity)
         # ship.move_next()
         ship_weapon = cast.get_first_actor("ship_weapon")
-        weapon_velocity = self._keyboard_service.ship_weapon_direction()
-        ship_weapon.set_velocity(weapon_velocity)
+        if self._keyboard_service.fire_weapon():
+            ship_weapon = Actor()
+            ship_weapon.set_position(ship.get_position())
+            ship_weapon.set_velocity(Point(0, -15))
+            ship_weapon.set_text("!")
+            ship_weapon.set_font_size(FONT_SIZE)
+            ship_weapon.set_color(WHITE)
+            cast.add_actor("ship_weapon", ship_weapon)

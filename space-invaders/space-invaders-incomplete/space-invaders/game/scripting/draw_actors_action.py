@@ -31,10 +31,12 @@ class DrawActorsAction(Action):
         """
         score = cast.get_first_actor("score")
         ship = cast.get_first_actor("ship")
+        ship_weapon = cast.get_first_actor("ship_weapon")
         aliens = cast.get_first_actor("aliens")
         messages = cast.get_actors("messages")
         alien_segments = aliens.get_segments()
         # ship_segments = ship.get_segments()
+        ship_weapon_segments = ship_weapon.get_segments()
 
         self._video_service.clear_buffer()
         self._video_service.draw_actor(score)
@@ -42,5 +44,6 @@ class DrawActorsAction(Action):
         self._video_service.draw_actors(alien_segments)
         self._video_service.draw_actors(messages, True)
         self._video_service.draw_actor(ship)
+        self._video_service.draw_actors(ship_weapon_segments)
         # self._video_service.draw_actor(aliens)
         self._video_service.flush_buffer()

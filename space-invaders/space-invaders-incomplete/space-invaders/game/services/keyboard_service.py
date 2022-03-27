@@ -59,3 +59,15 @@ class KeyboardService:
         direction = direction.scale(15)
 
         return direction
+
+    def ship_weapon_direction(self):
+        wx = 0
+        wy = 0
+
+        if pyray.is_key_down(pyray.KEY_SPACE):
+            wy = -15
+
+        direction = Point(wx, wy)
+        # direction = direction.scale(-15)
+
+        return direction

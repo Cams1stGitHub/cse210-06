@@ -23,3 +23,6 @@ class ActorInputs(Action):
         print(f"psoition: {ship.get_position().get_x()}")
         ship.set_velocity(velocity)
         # ship.move_next()
+        ship_weapon = cast.get_first_actor("ship_weapon")
+        weapon_velocity = self._keyboard_service.ship_weapon_direction()
+        ship_weapon.set_velocity(weapon_velocity)

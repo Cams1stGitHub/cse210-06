@@ -72,11 +72,11 @@ class Alien(Actor):
         x = position.get_x()
         y = position.get_y()
 
-        for x in range(30, 885, 45):
+        for x in range(30, 870, 30):
             for y in range(4):
-                position = Point(x + 0 * 15, y * 15)
+                position = Point(x + 0 * 15, 30 + y * 15)
                 velocity = Point(0, 1)
-                text = "<"
+                text = "<x>"
 
                 segment = Actor()
                 segment.set_position(position)
@@ -85,27 +85,27 @@ class Alien(Actor):
                 segment.set_color(self._color)
                 self._segments.append(segment)
 
-                position = Point(x + 1 * 15, y * 15)
-                velocity = Point(0, 1)
-                text = "="
+                # position = Point(x + 1 * 15, y * 15)
+                # velocity = Point(0, 1)
+                # text = "="
 
-                segment = Actor()
-                segment.set_position(position)
-                segment.set_velocity(velocity)
-                segment.set_text(text)
-                segment.set_color(self._color)
-                self._segments.append(segment)
+                # segment = Actor()
+                # segment.set_position(position)
+                # segment.set_velocity(velocity)
+                # segment.set_text(text)
+                # segment.set_color(self._color)
+                # self._segments.append(segment)
 
-                position = Point(x + 2 * 15, y * 15)
-                velocity = Point(0, 1)
-                text = ">"
+                # position = Point(x + 2 * 15, y * 15)
+                # velocity = Point(0, 1)
+                # text = ">"
 
-                segment = Actor()
-                segment.set_position(position)
-                segment.set_velocity(velocity)
-                segment.set_text(text)
-                segment.set_color(self._color)
-                self._segments.append(segment)
+                # segment = Actor()
+                # segment.set_position(position)
+                # segment.set_velocity(velocity)
+                # segment.set_text(text)
+                # segment.set_color(self._color)
+                # self._segments.append(segment)
 
     def set_name(self, name):
         """Sets the name for each player.

@@ -1,4 +1,5 @@
 import random
+import pyray
 
 from constants import *
 from game.casting.actor import Actor
@@ -20,6 +21,7 @@ from game.services.video_service import VideoService
 from game.shared.point import Point
 
 from game.casting.ship import Ship
+from game.casting.ship_weapon import ShipWeapon
 from game.casting.alien import Alien
 
 from game.casting.gem import Gem
@@ -42,11 +44,19 @@ def main():
 
     ship = Ship()
 
-    ship.set_position(Point(int(MAX_X / 2), int(MAX_Y - CELL_SIZE)))
-    ship.set_text("<^>")
+    ship.set_position(Point(450, int(MAX_Y - 15)))
+    ship.set_text("<v>")
     ship.set_font_size(FONT_SIZE)
-    ship.set_color(WHITE)
+    ship.set_color(RED)
     cast.add_actor("ship", ship)
+
+    ship_weapon = ShipWeapon(KeyboardService.ship_weapon_direction(pyray.KEY_SPACE), Ship().get_position())
+
+    # ship_weapon.set_text("!")
+    # ship_weapon.set_position(ship.get_position())
+    # ship_weapon.set_font_size(FONT_SIZE)
+    # ship_weapon.set_color(WHITE)
+    cast.add_actor("ship_weapon", ship_weapon)
 
     aliens = Alien()
     
@@ -61,6 +71,7 @@ def main():
 
     keyboard_service = KeyboardService()
     video_service = VideoService()
+
 
     script = Script()
     script.add_action("input", ActorInputs(keyboard_service))

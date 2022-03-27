@@ -20,7 +20,7 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- space Invaders      (source code for game)
++-- space-invaders-game      (source code for game)
   +-- game              (specific game classes)
     +-- casting         (various actor classes)
     +-- directing       (director and scene manager classes)

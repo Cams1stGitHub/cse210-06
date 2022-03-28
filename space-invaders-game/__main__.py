@@ -60,7 +60,7 @@ def main():
     score.set_position(Point(MAX_X, 0))
     score.add_points(0)
     score.set_player_name("score")
-    score.set_font_size(20)
+    score.set_font_size(25)
 
     cast.add_actor("score", score)
 

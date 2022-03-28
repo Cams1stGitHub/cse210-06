@@ -1,6 +1,6 @@
 # Space Invaders
 ---
-Space Invaders is a fixed shooter game in which the player moves a laser cannon horizontally across the bottom of the screen and fires at aliens overhead. The goal is to eliminate all of the aliens by shooting them. While the player has three lives, the game ends immediately if the invaders reach the bottom of the screen.The aliens attempt to destroy the player's cannon by firing projectiles. As aliens are defeated, their movement and the game's music both speed up. Defeating all the aliens brings another wave which starts lower, a loop which can continue endlessly.
+Space Invaders is a fixed shooter game in which the player moves a laser cannon horizontally across the bottom of the screen and fires at aliens overhead. The goal is to eliminate all of the aliens by shooting them.The game ends immediately if the invaders reach the bottom of the screen.The aliens attempt to destroy the player's cannon by firing projectiles. As aliens are defeated, their movement and the game's music both speed up. Defeating all the aliens brings another wave which starts lower, a loop which can continue endlessly. The space Invaders is played according to the following rules. Player can move left and right using the KEY_LEFT(back arrow) and KEY_RIGHT(forward arrow) and also using the KEY_SPACE to fire at aliens.
 ```
 ## Getting Started
 ---
@@ -22,10 +22,12 @@ The project files and folders are organized as follows:
 root                    (project root folder)
 +-- space-invaders-game (source code for game)
   +-- game              (specific game classes)
+    +-- assets          (game assets) 
     +-- casting         (various actor classes)
     +-- directing       (director and scene manager classes)
     +-- scripting       (various action classes)
     +-- services        (various service classes)
+    +-- shared          (game classes with methodes)
   +-- __main__.py       (entry point for program)
   +-- constants.py      (game constants)
 +-- README.md           (general info)

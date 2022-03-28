@@ -23,6 +23,7 @@ class KeyboardService:
         self._keys['s'] = pyray.KEY_S
         self._keys['d'] = pyray.KEY_D
 
+
         # self._direction = Point(0, 0)
         
     def is_key_up(self, key):
@@ -68,3 +69,9 @@ class KeyboardService:
         # direction = direction.scale(-15)
 
         return False
+
+    def super_weapon(self):
+        if pyray.is_key_pressed(pyray.KEY_B):
+            return True
+        else:
+            return False

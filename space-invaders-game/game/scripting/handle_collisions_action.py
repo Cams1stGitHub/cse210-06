@@ -78,7 +78,11 @@ class HandleCollisionsAction(Action):
             for bullet in bullets:
                 if alien.get_position().bounding_equals(bullet.get_position()):
                     alienslist._remove_alien(alien)
-                    cast.remove_actor("ship_weapon", bullet)
+                    
+                    if bullet.get_text() == "{0}":
+                        pass
+                    else:
+                        cast.remove_actor("ship_weapon", bullet)
                     score.add_points(alien.get_points())
                     self._audio_service.play_sound(explosion)
                     

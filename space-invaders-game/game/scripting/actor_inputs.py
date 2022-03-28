@@ -37,3 +37,19 @@ class ActorInputs(Action):
             ship_weapon.set_color(YELLOW)
             cast.add_actor("ship_weapon", ship_weapon)
             self._sound_service.play_sound(fire_sound)
+
+        if self._keyboard_service.super_weapon():
+            bullets = cast.get_actors("ship_weapon")
+            for bullet in bullets:
+                if bullet.get_text() == "{0}":
+                    return
+
+            ship_weapon = Actor()
+            #Point(.get_x()+9, ship.get_position().get_y())
+            ship_weapon.set_position(ship.get_position())
+            ship_weapon.set_velocity(Point(0, -5))
+            ship_weapon.set_text("{0}")
+            ship_weapon.set_font_size(FONT_SIZE)
+            ship_weapon.set_color(RED)
+            cast.add_actor("ship_weapon", ship_weapon)
+            self._sound_service.play_sound(fire_sound)

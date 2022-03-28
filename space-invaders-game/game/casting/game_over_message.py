@@ -1,5 +1,7 @@
 import constants
 from game.casting.actor import Actor
+from game.shared.color import Color
+import random
 
 
 class GameOver(Actor):
@@ -21,9 +23,10 @@ class GameOver(Actor):
 
         Returns:
         ---
-            Color: The actor's text color.
+            Color: random rainbow color
         """
-        return super().get_color()
+
+        return Color(random.randint(50, 255),random.randint(50, 255),random.randint(50, 255))
 
     def set_color(self, color):
         """Updates the color to the given one.

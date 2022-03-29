@@ -64,7 +64,7 @@ class HandleCollisionsAction(Action):
             self._game_over_message["message"] = "You win!"
             self._game_over_message["color"] = GREEN
             ship.set_font_size(50)
-            ship.set_position(Point(int(MAX_X/2), int(MAX_Y/4)))
+            ship.set_position(Point(int((MAX_X/2)-50), int(MAX_Y/4)))
             self._audio_service.play_sound(stage_clear)
             
         
@@ -105,7 +105,7 @@ class HandleCollisionsAction(Action):
         # Gets position for gameover message
         x = int(MAX_X / 2)
         y = int(MAX_Y / 2)
-        position = Point(x, y)
+        position = Point(x-50, y)
 
         if self._is_game_over:
 

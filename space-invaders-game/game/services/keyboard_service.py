@@ -47,6 +47,8 @@ class KeyboardService:
         return pyray.is_key_down(pyray_key)
 
     def get_direction(self):
+        """Gets direction based on user's keyboard input.
+        """
         dx = 0
         dy = 0
 
@@ -62,7 +64,8 @@ class KeyboardService:
         return direction
 
     def fire_weapon(self):
-        
+        """binds space button to fire ship's weapon.
+        """
         if pyray.is_key_pressed(pyray.KEY_SPACE):
 
             return True
@@ -71,6 +74,8 @@ class KeyboardService:
         return False
 
     def super_weapon(self):
+        """Binds b button to super weapon
+        """
         if pyray.is_key_pressed(pyray.KEY_B):
             return True
         else:

@@ -6,11 +6,12 @@ from game.casting.cast import Cast
 
 
 class Alien(Actor):
-    """An elite fighter space ship that is part of The Interstellar Armed Forces.
+    """Aliens that are invading your ship
 
-    The responsibility of Ship is to move itself.
+    The responsibility of Alien is to move down and reach the bottom of the screen
 
     Attributes:
+        _segments(list): segments of alien invaders
     ---
     """
 
@@ -60,6 +61,12 @@ class Alien(Actor):
         self._segments[0].set_color(self._color)
 
     def _prepare_ship(self, position):
+        """Sets the Alien's design, speed, and color.
+        
+            Args:
+            ---
+                position (Point): The position and direction that each cycle will travel in at game start.
+            """        
         x = position.get_x()
         y = position.get_y()
         points = [15,10,5,20]

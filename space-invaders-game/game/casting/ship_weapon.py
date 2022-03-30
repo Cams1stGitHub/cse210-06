@@ -8,9 +8,9 @@ from game.services.keyboard_service import KeyboardService
 from game.casting.ship import Ship
 
 class ShipWeapon(Actor):
-    """An elite fighter space ship that is part of The Interstellar Armed Forces.
+    """The ship's weapon used to defeat invading aliens.
 
-    The responsibility of Ship is to move itself.
+    The responsibility of the Ship's weapon is to hit the Aliens
 
     Attributes:
     ---
@@ -66,6 +66,12 @@ class ShipWeapon(Actor):
         self._segments[0].set_color(self._color)
 
     def _prepare_ship(self, position):
+        """Prepares the ship's weapon color and speed.
+        
+            Args:
+            ---
+                position (Point): The position and direction that each cycle will travel in at game start.
+            """
         x = position.get_x()
         y = position.get_y()
 

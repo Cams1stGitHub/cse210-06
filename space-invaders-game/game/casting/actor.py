@@ -27,6 +27,7 @@ class Actor:
         self._points = 0
 
     def get_points(self):
+        """gets points for user."""
         return self._points
 
     def get_color(self):

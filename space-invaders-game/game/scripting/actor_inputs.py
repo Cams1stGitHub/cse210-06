@@ -8,6 +8,10 @@ from game.casting.sound import Sound
 
 
 class ActorInputs(Action):
+    """Gets the inputs for the actors
+    
+    The responsibility of ActorInputs is to get the input from the user and and create
+    the ship weapon and get directional input"""
     def __init__(self, keyboard_services, sound_service):
         self._keyboard_service = keyboard_services
         self._sound_service = sound_service

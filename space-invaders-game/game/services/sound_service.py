@@ -3,13 +3,23 @@ import pyray
 import pathlib 
 
 class AudioService:
+    """Creates audio for Spaceship
+    
+    The responsibility of AudioService is to make sounds for when the spaceship
+    fires a rocket or destroys an alien"""
     def __init__(self):
         self._sounds = {}
         
     def initialize(self):
+        """Initializes audio"""
         pyray.init_audio_device()
         
     def play_sound(self, sound):
+        """finds audio location and begins playing sound
+
+        Args:
+            sound(Sound): Gets sound location and plays it
+        """
         filepath = sound.get_filename()
         filepath = str(pathlib.Path(filepath))
         soundl = pyray.load_sound(filepath)
@@ -20,9 +30,15 @@ class AudioService:
     
         
     def release(self):
+        """Stops audio"""
         pyray.close_audio_device()
         
     def is_sound_playing(self,sound):
+        """keeps the audio playing
+        
+        Args:
+            sound(Sound): Gets sound location and plays it
+        """
         filepath = sound.get_filename()
         filepath = str(pathlib.Path(filepath))
         sound = self._sounds[filepath]

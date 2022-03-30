@@ -12,6 +12,10 @@ class ActorUpdates(Action):
         pass
 
     def execute(self, cast, script):
+        """Executes the Actor updates
+        Args:
+            cast (Cast): The cast of actors.
+        """
         self._do_updates(cast)
 
     def _do_updates(self, cast):

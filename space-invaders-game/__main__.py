@@ -25,8 +25,6 @@ from game.casting.ship import Ship
 from game.casting.ship_weapon import ShipWeapon
 from game.casting.alien import Alien
 
-from game.casting.gem import Gem
-from game.casting.rock import Rock
 
 
 def main():

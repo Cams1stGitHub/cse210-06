@@ -25,12 +25,12 @@ DEFAULT_ROCKS = 20
 DEFAULT_GEMS = 20
 
 #sounds
-EXPLOSION_SOUND = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\explosion.wav"
-SHOT_SOUND = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\shot.wav"
-LOOP_SOUND = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\loop.wav"
-GAME_OVER = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\gameover.wav"
-STAGE_CLEAR = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\win.wav"
+EXPLOSION_SOUND = "game/assets/explosion.wav"
+SHOT_SOUND = "game/assets/shot.wav"
+LOOP_SOUND = "game/assets/loop.wav"
+GAME_OVER = "game/assets/gameover.wav"
+STAGE_CLEAR = "game/assets/win.wav"
 
 #fonts
-ALIENS_FONT = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\INVADERS.TTF"
-LETTER_FONT = "C:\\Users\\camse\\OneDrive\\Documents\\.py\\cse210.py\\cse210-projects.py\\cse210-06\\space-invaders-game\\game\\assets\\space_invaders.ttf"
+ALIENS_FONT = "game/assets/INVADERS.TTF"
+LETTER_FONT = "game/assets/space_invaders.ttf"

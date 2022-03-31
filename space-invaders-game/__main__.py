@@ -26,12 +26,9 @@ from game.shared.point import Point
    
 
 def main():
-
-    # create the cast
-
+    
     cast = Cast()
 
-    # create the banner
     banner = Actor()
     banner.set_text("")
     banner.set_font_size(FONT_SIZE)

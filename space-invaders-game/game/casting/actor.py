@@ -25,6 +25,10 @@ class Actor:
         self._velocity = Point(0, 0)
         self._group = ""
         self._points = 0
+        self._font = LETTER_FONT
+
+    def get_font(self):
+        return self._font
 
     def get_points(self):
         """gets points for user."""
@@ -95,6 +99,9 @@ class Actor:
         x = (self._position.get_x() + self._velocity.get_x()) % MAX_X
         y = (self._position.get_y() + self._velocity.get_y()) % MAX_Y
         self._position = Point(x, y)
+
+    def set_font(self, font):
+        self._font = font
 
     def set_points(self, points):
         self._points = points

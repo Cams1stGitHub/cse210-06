@@ -70,13 +70,15 @@ class Alien(Actor):
         x = position.get_x()
         y = position.get_y()
         points = [15,10,5,20]
+        font = ["a", "c", "e", "h"]
         for x in range(30, 870, 30):
             for y in range(4):
                 position = Point(x + 0 * 15, 30 + y * 15)
                 velocity = Point(0, 1)
-                text = "<x>"
+                text = font[y]
 
                 segment = Actor()
+                segment.set_font(ALIENS_FONT)
                 segment.set_position(position)
                 segment.set_velocity(velocity)
                 segment.set_text(text)

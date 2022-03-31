@@ -30,3 +30,7 @@ SHOT_SOUND = "game/assets/shot.wav"
 LOOP_SOUND = "game/assets/loop.wav"
 GAME_OVER = "game/assets/gameover.wav"
 STAGE_CLEAR = "game/assets/win.wav"
+
+#fonts
+ALIENS_FONT = "game/assets/INVADERS.TTF"
+LETTER_FONT = "game/assets/space_invaders.ttf"

@@ -5,6 +5,7 @@ class Point:
     convenience methods for adding, scaling, and comparing them.
 
     Attributes:
+    ---
         _x (integer): The horizontal distance from the origin.
         _y (integer): The vertical distance from the origin.
     """
@@ -47,9 +48,11 @@ class Point:
         """Calculates if the other point is inside the bounding box of this point.
 
         Args:
+        ---
             other (Point): An instance of Point.
 
         Returns:
+        ---
             boolean: True if other point is inside of the bounding box.
         """
         bounding_x = other.get_x() >= self._x and other.get_x() <= self._x + 15

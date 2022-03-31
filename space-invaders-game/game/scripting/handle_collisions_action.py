@@ -1,7 +1,3 @@
-from email import message
-from email.mime import audio
-from tkinter.messagebox import NO
-from wsgiref.util import shift_path_info
 from constants import *
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -13,8 +9,9 @@ class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
 
-    The responsibility of HandleCollisionsAction is to handle the situation when a cycle collides
-    with its segments or the segments of the other cycle, or the game is over.
+    The responsibility of HandleCollisionsAction is to handle the situation when
+    a ship weapon collides with an Alien or an Alien touches the 570th pixel on
+    the y axis of the screen.
 
     Attributes:
     ---
@@ -28,6 +25,12 @@ class HandleCollisionsAction(Action):
         self._audio_service = audio_service
 
     def get_is_game_over(self):
+        """Gets the game over boolean.
+        
+        Returns:
+        ---
+            _is_game_over (boolean): True or False
+        """
         return self._is_game_over
 
     def execute(self, cast, script):
@@ -44,8 +47,8 @@ class HandleCollisionsAction(Action):
             self._handle_game_over(cast)
 
     def _handle_collision(self, cast):
-        """Sets the game over flag if a cycle collides with one of its segments or the other
-        cycle.
+        """Sets the game over flag if a ship weapon collides with an Alien
+        or if the Alien touches the 570th pixel on the y axis.
 
         Args:
         ---
@@ -69,7 +72,7 @@ class HandleCollisionsAction(Action):
             
         
         for alien in alienslist.get_segments():
-            if alien.get_position().get_y() >= MAX_Y-15:
+            if alien.get_position().get_y() >= MAX_Y-30:
                 self._is_game_over = True
                 self._audio_service.play_sound(game_over_sound)
                 self._game_over_message["message"] = "Game Over!"
@@ -95,23 +98,17 @@ class HandleCollisionsAction(Action):
                 
 
     def _handle_game_over(self, cast):
-        """Shows the 'game over' message and turns both cycles white if the game is over.
+        """Shows the 'game over' message if the game is over.
 
         Args:
         ---
             cast (Cast): The cast of Actors in the game.
         """
-
-        # Gets position for gameover message
         x = int(MAX_X / 2)
         y = int(MAX_Y / 2)
         position = Point(x-50, y)
 
         if self._is_game_over:
-
-            # Gets segments for cycle one and two
-
-            # Creates gameover message
             game_over = GameOver()
             game_over.set_position(position)
             game_over.set_text(self._game_over_message["message"])

@@ -1,31 +1,29 @@
-import random
-import pyray
-
 from constants import *
+ 
 from game.casting.actor import Actor
 from game.casting.cast import Cast
 from game.casting.score import Score
+from game.casting.ship import Ship
+from game.casting.alien import Alien
 
 from game.directing.director import Director
+
+from game.scripting.script import Script
 from game.scripting.actor_inputs import ActorInputs
 from game.scripting.actor_updates import ActorUpdates
 from game.scripting.actor_outputs import ActorOutputs
-
-from game.casting.cast import Cast
-from game.scripting.script import Script
 from game.scripting.move_actors_action import MoveActorsAction
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.draw_actors_action import DrawActorsAction
+
 from game.services.keyboard_service import KeyboardService
-from game.services.sound_service import AudioService
+from game.services.audio_service import AudioService
 from game.services.video_service import VideoService
+
 from game.shared.point import Point
 
-from game.casting.ship import Ship
-from game.casting.ship_weapon import ShipWeapon
-from game.casting.alien import Alien
 
-
+   
 
 def main():
 

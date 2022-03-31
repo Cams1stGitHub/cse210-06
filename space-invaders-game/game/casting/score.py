@@ -18,7 +18,7 @@ class Score(Actor):
         position (Point): A point value to place each players score on the screen.
         _player_name (string): A string that will hold each players name.
         set_position (method): A method that sets the scores position on the screen.
-        set_text (method): A method that displays each players name.
+        set_text (method): A method that displays the text score.
     """
 
     def __init__(self):

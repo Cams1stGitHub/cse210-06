@@ -1,7 +1,7 @@
-import constants
+import random
+from constants import *
 from game.casting.actor import Actor
 from game.shared.color import Color
-import random
 
 
 class GameOver(Actor):
@@ -16,7 +16,7 @@ class GameOver(Actor):
     def __init__(self):
         "Constructs a game over message."
         super().__init__()
-        self._color = constants.GREEN
+        self._color = GREEN
 
     def get_color(self):
         """Gets the actor's color as a tuple of three ints (r, g, b).

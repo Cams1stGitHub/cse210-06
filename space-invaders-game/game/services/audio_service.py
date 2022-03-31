@@ -1,4 +1,3 @@
-from pydoc import ispackage
 import pyray
 import pathlib 
 
@@ -8,6 +7,7 @@ class AudioService:
     The responsibility of AudioService is to make sounds for when the spaceship
     fires a rocket or destroys an alien"""
     def __init__(self):
+        """Constructs a new Audio Service."""
         self._sounds = {}
         
     def initialize(self):
@@ -18,7 +18,8 @@ class AudioService:
         """finds audio location and begins playing sound
 
         Args:
-            sound(Sound): Gets sound location and plays it
+        ---
+            sound (.wav): Gets sound location and plays it
         """
         filepath = sound.get_filename()
         filepath = str(pathlib.Path(filepath))
@@ -34,10 +35,15 @@ class AudioService:
         pyray.close_audio_device()
         
     def is_sound_playing(self,sound):
-        """keeps the audio playing
+        """Keeps the audio playing
         
         Args:
-            sound(Sound): Gets sound location and plays it
+        ---
+            sound (.wav): Gets sound location and plays it
+
+        Returns:
+        ---
+            isPlaying (method): A method with a dictionary passed in which contains a file path.
         """
         filepath = sound.get_filename()
         filepath = str(pathlib.Path(filepath))

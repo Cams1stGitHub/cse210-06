@@ -8,12 +8,17 @@ class Actor:
 
     The responsibility of Actor is to keep track of its appearance, position and velocity in 2d
     space.
+
     Attributes:
+    ---
         _text (string): The text to display
         _font_size (int): The font size to use.
         _color (Color): The color of the text.
         _position (Point): The screen coordinates.
         _velocity (Point): The speed and direction.
+        _group (str): The group name of an actor.
+        _points (int): The point value of an actor.
+        _font (.ttf): The font of an actor.
     """
 
     def __init__(self):
@@ -28,10 +33,21 @@ class Actor:
         self._font = LETTER_FONT
 
     def get_font(self):
+        """Gets the actor's font.
+        
+        Returns:
+        ---
+            font (.ttf): The actor's font.
+        """
         return self._font
 
     def get_points(self):
-        """gets points for user."""
+        """Gets the actor's point value.
+        
+        Returns:
+        ---
+            integer: The actor's point value.
+        """
         return self._points
 
     def get_color(self):
@@ -101,9 +117,21 @@ class Actor:
         self._position = Point(x, y)
 
     def set_font(self, font):
+        """Updates the font to the given one.
+        
+        Args:
+        ---
+            font (.TTF): The given font.
+        """
         self._font = font
 
     def set_points(self, points):
+        """Updates the point value to the given one.
+        
+        Args:
+        ---
+            points (int): The given point value.
+        """
         self._points = points
 
     def set_color(self, color):

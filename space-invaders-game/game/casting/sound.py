@@ -16,13 +16,13 @@ class Sound:
         self._repeat = repeat
         
     def get_filename(self):
-        """gets the audio filename"""
+        """Gets the audio filename"""
         return self._filename
         
     def get_volume(self):
-        """get volume for Audio"""
+        """Get volume for Audio"""
         return self._volume
         
     def is_repeat(self):
-        """repeats audio"""
+        """Repeats audio"""
         return self._repeat

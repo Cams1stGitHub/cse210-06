@@ -26,7 +26,7 @@ class HandleCollisionsAction(Action):
 
     def get_is_game_over(self):
         """Gets the game over boolean.
-        
+
         Returns:
         ---
             _is_game_over (boolean): True or False
@@ -61,7 +61,7 @@ class HandleCollisionsAction(Action):
         explosion = Sound(EXPLOSION_SOUND)
         game_over_sound = Sound(GAME_OVER)
         stage_clear = Sound(STAGE_CLEAR)
-        
+
         if len(alienslist.get_segments()) == 0:
             self._is_game_over = True
             self._game_over_message["message"] = "You win!"
@@ -69,8 +69,8 @@ class HandleCollisionsAction(Action):
             ship.set_font_size(50)
             ship.set_position(Point(int((MAX_X/2)-50), int(MAX_Y/4)))
             self._audio_service.play_sound(stage_clear)
-            
-        
+
+
         for alien in alienslist.get_segments():
             if alien.get_position().get_y() >= MAX_Y-30:
                 self._is_game_over = True
@@ -81,21 +81,21 @@ class HandleCollisionsAction(Action):
             for bullet in bullets:
                 if alien.get_position().bounding_equals(bullet.get_position()):
                     alienslist._remove_alien(alien)
-                    
+
                     if bullet.get_text() == "{0}":
                         pass
                     else:
                         cast.remove_actor("ship_weapon", bullet)
                     score.add_points(alien.get_points())
                     self._audio_service.play_sound(explosion)
-                    
+
         for alien in alienslist.get_segments():
             if ship.get_position().bounding_equals(alien.get_position()):
                 self._is_game_over = True
                 self._game_over_message["message"] = "Game Over!"
                 self._game_over_message["color"] = RED
                 self._audio_service.play_sound(game_over_sound)
-                
+
 
     def _handle_game_over(self, cast):
         """Shows the 'game over' message if the game is over.

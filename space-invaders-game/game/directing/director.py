@@ -6,7 +6,7 @@ from game.casting.sound import Sound
 class Director:
     """A person who directs the game.
     The responsibility of a Director is to control the sequence of play.
-    
+
     Attributes:
     ---
         _keyboard_service (KeyboardService): For getting directional input.
@@ -16,7 +16,7 @@ class Director:
 
     def __init__(self, keyboard_service, video_service, audio_service):
         """Constructs a new Director using the specified keyboard and video services.
-        
+
         Args:
         ---
             keyboard_service (KeyboardService): An instance of KeyboardService.

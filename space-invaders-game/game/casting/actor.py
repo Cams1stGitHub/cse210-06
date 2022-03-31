@@ -34,7 +34,7 @@ class Actor:
 
     def get_font(self):
         """Gets the actor's font.
-        
+
         Returns:
         ---
             font (.ttf): The actor's font.
@@ -43,7 +43,7 @@ class Actor:
 
     def get_points(self):
         """Gets the actor's point value.
-        
+
         Returns:
         ---
             integer: The actor's point value.
@@ -118,7 +118,7 @@ class Actor:
 
     def set_font(self, font):
         """Updates the font to the given one.
-        
+
         Args:
         ---
             font (.TTF): The given font.
@@ -127,7 +127,7 @@ class Actor:
 
     def set_points(self, points):
         """Updates the point value to the given one.
-        
+
         Args:
         ---
             points (int): The given point value.

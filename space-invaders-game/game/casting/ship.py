@@ -12,22 +12,22 @@ class Ship(Actor):
     def __init__(self):
         """Constructs a new Ship."""
         super().__init__()
-    
+
 
     def move_next(self):
         """Moves the actor to its next position according to its velocity. Will wrap the position
         from one side of the screen to the other when it reaches the given maximum x and y values.
         """
 
-        if self._position.get_x() >= 0 and self._position.get_x() <= 870:
+        if self._position.get_x() >= 0 and self._position.get_x() <= 867:
             x = (self._position.get_x() + self._velocity.get_x())
             y = (self._position.get_y() + self._velocity.get_y())
             if x < 0:
                 x = 0
-            if x > 870:
-                x = 870
+            if x > 867:
+                x = 867
             self._position = Point(x, y)
-        
+
 
     def set_ship_color(self, color):
         """Sets the color for each segment of a cycle.

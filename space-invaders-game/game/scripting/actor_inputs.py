@@ -10,7 +10,7 @@ class ActorInputs(Action):
 
     The responsibility of ActorInputs is to get the input from the user and and create
     the ship weapon and get directional input
-    
+
     Attributes:
     ---
         _keyboard_service: An instance of KeyboardService

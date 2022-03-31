@@ -36,7 +36,7 @@ class Alien(Actor):
         """
         for segment in self._segments:
             segment.move_next()
-    
+
     def set_ship_color(self, color):
         """Sets the color for each segment of a cycle.
 
@@ -50,11 +50,11 @@ class Alien(Actor):
 
     def _prepare_alien(self, position):
         """Sets the Alien's design, speed, and color.
-        
+
             Args:
             ---
                 position (Point): The position and direction that each cycle will travel in at game start.
-            """        
+            """
         x = position.get_x()
         y = position.get_y()
         points = [15,10,5,20]
@@ -76,7 +76,7 @@ class Alien(Actor):
 
     def _remove_alien(self, alien):
         """Removes an Alien from the screen.
-        
+
         Args:
         ---
             alien (type <class>): An Alien object.

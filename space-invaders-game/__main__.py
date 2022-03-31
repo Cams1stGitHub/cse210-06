@@ -1,5 +1,5 @@
 from constants import *
- 
+
 from game.casting.actor import Actor
 from game.casting.cast import Cast
 from game.casting.score import Score
@@ -23,10 +23,8 @@ from game.services.video_service import VideoService
 from game.shared.point import Point
 
 
-   
-
 def main():
-    
+
     cast = Cast()
 
     banner = Actor()
@@ -47,7 +45,7 @@ def main():
 
 
     aliens = Alien()
-    
+
     cast.add_actor("aliens", aliens)
 
     score = Score()

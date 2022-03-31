@@ -63,7 +63,7 @@ class VideoService:
             actors (list): A list of actors to draw.
         """
 
-        
+
         for actor in actors:
             self.draw_actor(actor, centered)
 

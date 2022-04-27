@@ -99,6 +99,7 @@ class Actor:
         """Gets the actor's group as a string
 
         Returns:
+        ---
             String: The actor's group name.
         """
         return self._group
@@ -183,6 +184,7 @@ class Actor:
         """Updates the group to the given one.
 
         Args:
+        ---
             group (string): The given name.
         """
         self._group = group

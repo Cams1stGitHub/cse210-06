@@ -14,6 +14,7 @@ class Point:
         """Constructs a new Point using the specified x and y values.
 
         Args:
+        ---
             x (int): The specified x value.
             y (int): The specified y value.
         """
@@ -24,9 +25,11 @@ class Point:
         """Gets a new point that is the sum of this and the given one.
 
         Args:
+        ---
             other (Point): The Point to add.
 
         Returns:
+        ---
             Point: A new Point that is the sum.
         """
         x = self._x + other.get_x()
@@ -37,9 +40,11 @@ class Point:
         """Whether or not this Point is equal to the given one.
 
         Args:
+        ---
             other (Point): The Point to compare.
 
         Returns:
+        ---
             boolean: True if both x and y are equal; false if otherwise.
         """
         return self._x == other.get_x() and self._y == other.get_y()
@@ -61,11 +66,11 @@ class Point:
             return True
         return False
 
-
     def get_x(self):
         """Gets the horizontal distance.
 
         Returns:
+        ---
             integer: The horizontal distance.
         """
         return self._x
@@ -74,6 +79,7 @@ class Point:
         """Gets the vertical distance.
 
         Returns:
+        ---
             integer: The vertical distance.
         """
         return self._y
@@ -83,9 +89,11 @@ class Point:
         Scales the point by the provided factor.
 
         Args:
+        ---
             factor (int): The amount to scale.
 
         Returns:
+        ---
             Point: A new Point that is scaled.
         """
         return Point(self._x * factor, self._y * factor)

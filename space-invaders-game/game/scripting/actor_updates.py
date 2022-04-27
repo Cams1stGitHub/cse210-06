@@ -8,7 +8,8 @@ class ActorUpdates(Action):
 
     the responsibility of ActorUpdates is to update the actor so the location
     matches the right coordinates of the ship and the ship's weapon displays
-    in the right area"""
+    in the right area
+    """
 
     def __init__(self):
         """Constructs a new instance of ActorUpdates."""

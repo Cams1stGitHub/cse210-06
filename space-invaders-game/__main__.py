@@ -35,7 +35,6 @@ def main():
     cast.add_actor("banners", banner)
 
     ship = Ship()
-
     ship.set_position(Point(450, int(MAX_Y - 15)))
     ship.set_text("-")
     ship.set_font(ALIENS_FONT)
@@ -43,9 +42,7 @@ def main():
     ship.set_color(WHITE)
     cast.add_actor("ship", ship)
 
-
     aliens = Alien()
-
     cast.add_actor("aliens", aliens)
 
     score = Score()
@@ -53,7 +50,6 @@ def main():
     score.add_points(0)
     score.set_player_name("score")
     score.set_font_size(25)
-
     cast.add_actor("score", score)
 
     keyboard_service = KeyboardService()

@@ -15,7 +15,6 @@ class Alien(Actor):
 
     """
 
-
     def __init__(self):
         """Constructs a new Alien."""
         super().__init__()

@@ -14,7 +14,8 @@ class ActorInputs(Action):
     Attributes:
     ---
         _keyboard_service: An instance of KeyboardService
-        _"""
+        _audio_service: An instance of AudioService
+    """
 
     def __init__(self, keyboard_services, audio_service):
         """Constructs a new instance of ActorInputs"""

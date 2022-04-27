@@ -19,7 +19,6 @@ class VideoService:
         self._space_invaders_font = None
         self._font_options = None
 
-
     def close_window(self):
         """Closes the window and releases all computing resources."""
         pyray.close_window()
@@ -46,7 +45,7 @@ class VideoService:
         font_size = actor.get_font_size()
         font = self._font_options[actor.get_font()]
         color = actor.get_color().to_tuple()
-        position = pyray.Vector2(x,y)
+        position = pyray.Vector2(x, y)
 
         if centered:
             width = pyray.measure_text(text, font_size)
@@ -62,7 +61,6 @@ class VideoService:
         ---
             actors (list): A list of actors to draw.
         """
-
 
         for actor in actors:
             self.draw_actor(actor, centered)
@@ -97,6 +95,7 @@ class VideoService:
             ALIENS_FONT: self._alien_font,
             LETTER_FONT: self._space_invaders_font
         }
+
     def _draw_grid(self):
         """Draws a grid on the screen."""
         for y in range(0, MAX_Y, CELL_SIZE):

@@ -70,7 +70,6 @@ class HandleCollisionsAction(Action):
             ship.set_position(Point(int((MAX_X/2)-50), int(MAX_Y/4)))
             self._audio_service.play_sound(stage_clear)
 
-
         for alien in alienslist.get_segments():
             if alien.get_position().get_y() >= MAX_Y-30:
                 self._is_game_over = True
@@ -95,7 +94,6 @@ class HandleCollisionsAction(Action):
                 self._game_over_message["message"] = "Game Over!"
                 self._game_over_message["color"] = RED
                 self._audio_service.play_sound(game_over_sound)
-
 
     def _handle_game_over(self, cast):
         """Shows the 'game over' message if the game is over.

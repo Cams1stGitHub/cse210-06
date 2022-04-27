@@ -48,18 +48,6 @@ class Director:
             self._execute_actions("output", cast, script)
         self._video_service.close_window()
 
-    def _do_outputs(self, cast):
-        """Draws the actors on the screen.
-
-        Args:
-        ---
-            cast (Cast): The cast of actors.
-        """
-        self._video_service.clear_buffer()
-        actors = cast.get_all_actors()
-        self._video_service.draw_actors(actors)
-        self._video_service.flush_buffer()
-
     def _execute_actions(self, group, cast, script):
         """Calls execute for each action in the given group.
 
